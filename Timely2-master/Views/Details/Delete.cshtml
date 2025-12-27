@@ -1,0 +1,32 @@
+﻿@model Detail
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Details</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name"disabled name="Name" class="form-control"/>
+    </div>
+
+    <div>
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description"disabled name="Description" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CreatedDate" class="form-label"></label>
+        <input asp-for="CreatedDate" disabled name="CreatedDate" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="AppointmentId" class="form-label"></label>
+        <input asp-for="AppointmentId" disabled name="AppointmentId" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Details</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+

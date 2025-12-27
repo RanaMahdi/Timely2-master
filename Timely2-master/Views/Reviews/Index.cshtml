@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Review>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Review</h1>
+<div class="container">
+
+    <div class="text-end">
+
+        <a asp-controller="Reviews" asp-action="Create" class="btn btn-outline-primary">Add New</a>
+
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Comments</th>
+                <th>Rating</th>
+                <th>ReviewDate</th>
+                <th>service</th>
+                <th>Client</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var review in Model)
+            {
+
+                <tr>
+                    <td>@review.Id</td>
+                    <td>@review.Comments</td>
+                    <td>@review.Rating</td>
+                    <td>@review.ReviewDate</td>
+                    <td>@review.Client?.Name</td>
+                    <td>@review.service?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-Id="@review.Id" class="btn btn-outline-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-Id="@review.Id" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

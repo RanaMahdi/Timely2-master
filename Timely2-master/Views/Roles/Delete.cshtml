@@ -1,0 +1,23 @@
+﻿@model Role
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Role</h1>
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Permission" class="form-label"></label>
+        <input asp-for="Permission" disabled name="Permission" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+

@@ -1,0 +1,52 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Client</h1>
+
+<form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" name="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" name="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" name="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Gender" class="form-label"></label>
+        <select asp-for="Gender" class="form-control">
+            <option value="">-- Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="NationalityId" class="form-label"></label>
+        <select asp-for="NationalityId" name="NationalityId" class="form-control" asp-items="@ViewBag.Nationalities">
+            <option value="">-- Select Nationality --</option>
+        </select>
+        <span asp-validation-for="NationalityId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+

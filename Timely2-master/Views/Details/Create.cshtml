@@ -1,0 +1,37 @@
+﻿@model Detail
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Details</h1>
+
+<form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" name="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CreatedDate" class="form-label"></label>
+        <input asp-for="CreatedDate" name="CreatedDate" class="form-control" />
+        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Appointment" class="form-label"></label>
+        <select asp-for="AppointmentId" name="AppointmentId" class="form-control" asp-items="@ViewBag.Appointments">
+            <option selected value="">--select Appointment--</option>
+        </select>
+        <span asp-validation-for="AppointmentId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

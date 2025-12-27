@@ -1,0 +1,57 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Delete";
+}
+    <h1>Delete Appointment</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title"disabled name="Title" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description"disabled name="Description" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="AppointmentDateTime" class="form-label"></label>
+        <input asp-for="AppointmentDateTime"disabled name="AppointmentDateTime" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status" name="Status"  disabled class="form-control">
+            <option value="">-- Select Status --</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Client" class="form-label"></label>
+        <select asp-for="ClientId" name="ClientId" disabled class="form-control" asp-items="@ViewBag.Clients">
+            <option selected value="">--select Client --</option>
+        </select>
+        <span asp-validation-for="ClientId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Employee" class="form-label"></label>
+        <select asp-for="EmployeeId" disabled name="EmployeeId" class="form-control" asp-items="@ViewBag.Employees">
+            <option selected value="">--select Employee--</option>
+        </select>
+        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="UpdatedAt" class="form-label"></label>
+        <input asp-for="UpdatedAt"disabled name="UpdatedAt" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-danger"> Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+

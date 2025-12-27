@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Service</h1>
+<div class="container">
+
+    <div class="text-end">
+        <a asp-controller="Services" asp-action="Create" class="btn btn-outline-primary">Add New</a>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>IsActive</th>
+                <th>TypeService</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var serv in Model)
+            {
+
+                <tr>
+                    <td>@serv.Id</td>
+                    <td>@serv.Name</td>
+                    <td>@serv.Price</td>
+                    <td>@serv.IsActive</td>
+                    <td>@serv.TypeService?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-Uid="@serv.Uid" class="btn btn-outline-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-Uid="@serv.Uid" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

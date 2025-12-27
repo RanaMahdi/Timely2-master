@@ -1,0 +1,37 @@
+﻿@model DepartmentWorking
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name"disabled name="Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="StartTime" class="form-label"></label>
+        <input asp-for="StartTime" disabled name="StartTime" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="EndTime" class="form-label"></label>
+        <input asp-for="EndTime" disabled name="EndTime" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="IsActive" class="form-label"></label>
+        <input asp-for="IsActive" disabled name="IsActive" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Day" class="form-label"></label>
+        <input asp-for="Day" disabled name="Day" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@model Payment
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Create Payment</h1>
+
+<form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount" name="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="PaymentDate" class="form-label"></label>
+        <input asp-for="PaymentDate" name="PaymentDate" class="form-control" />
+        <span asp-validation-for="PaymentDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="PaymentMethod" class="form-label"></label>
+        <select asp-for="PaymentMethod" name="PaymentMethod" class="form-control" asp-items="@ViewBag.PaymentMethods">
+            <option selected value="">--select PaymentMethod--</option><
+        </select>
+        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="ClientId" class="form-label"></label>
+        <select asp-for="ClientId" name="ClientId" class="form-control" asp-items="@ViewBag.Clients">
+            <option selected value="">--select Client --</option>
+        </select>
+        <span asp-validation-for="ClientId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="AppointmentId" class="form-label"></label>
+        <select asp-for="AppointmentId" name="AppointmentId" class="form-control" asp-items="@ViewBag.Appointments">
+            <option selected value="">--select Employee--</option>
+        </select>
+        <span asp-validation-for="AppointmentId" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

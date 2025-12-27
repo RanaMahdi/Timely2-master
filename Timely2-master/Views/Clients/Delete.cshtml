@@ -1,0 +1,49 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Client</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control"/>
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name"disabled name="Name" class="form-control"/>
+    </div>
+
+    <div>
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone"disabled name="Phone" class="form-control"/>
+    </div>
+    <div>
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email"disabled name="Email" class="form-control"/>
+
+    </div>
+    <div>
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password"disabled name="Password" class="form-control"/>
+
+    </div>
+    <div>
+        <label asp-for="Gender" class="form-label"></label>
+        <select asp-for="Gender" name="Gender" class="form-control">
+            <option value="">-- Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div>
+        <label asp-for="Nationality" class="form-label"></label>
+        <select asp-for="NationalityId" name="NationalityId" disabled class="form-control">
+            <option value="">-- Select Nationality --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+
+

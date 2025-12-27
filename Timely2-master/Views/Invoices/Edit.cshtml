@@ -1,0 +1,50 @@
+﻿@model Invoice
+@{
+    ViewData["Title"] = "Edit Invoice";
+}
+
+    <h1>Edit Invoice</h1>
+    <form method="post" asp-action="Edit">
+        @Html.AntiForgeryToken()
+        <input asp-for="Uid" hidden name="Uid" class="form-control" />
+
+        <div>
+            <label asp-for="InvoiceDate" class="form-label"></label>
+            <input asp-for="InvoiceDate" type="date" class="form-control" />
+            <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="TotalAmount" class="form-label"></label>
+            <input asp-for="TotalAmount" class="form-control" />
+            <span asp-validation-for="TotalAmount" class="text-danger"></span>
+        </div>
+        <div>
+        <label asp-for="IsPaid" class="form-label"></label>
+        <input asp-for="IsPaid" name="IsPaid" class="form-control" />
+        <span asp-validation-for="IsPaid" class="text-danger"></span>
+        </div>
+            <div>
+                <label asp-for="AppointmentId" class="form-label"></label>
+                <select asp-for="AppointmentId" class="form-control" asp-items="@ViewBag.Appointments">
+                    <option value="">-- Select Appointment --</option>
+                </select>
+                <span asp-validation-for="AppointmentId" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ClientId" class="form-label"></label>
+                <select asp-for="ClientId" class="form-control" asp-items="@ViewBag.Clients">
+                    <option value="">-- Select Client --</option>
+                </select>
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+        <div>
+            <label asp-for="PaymentId" class="form-label"></label>
+            <select asp-for="PaymentId" class="form-control" asp-items="@ViewBag.Payments">
+                <option value="">-- Select Payment --</option>
+            </select>
+            <span asp-validation-for="AppointmentId" class="text-danger"></span>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-outline-warning">Update</button>
+        <a asp-action="Index" class="btn btn-primary">Back</a>
+    </form>

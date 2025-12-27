@@ -1,0 +1,26 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "Delete";
+}
+    <h1>Delete Review</h1>
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Comments" class="form-label"></label>
+        <input asp-for="Comments"disabled name="Comments" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Rating" class="form-label"></label>
+        <input asp-for="Rating" disabled name="Rating" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ReviewDate" class="form-label"></label>
+        <input asp-for="ReviewDate" disabled name="ReviewDate" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+

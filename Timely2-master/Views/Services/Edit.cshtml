@@ -1,0 +1,48 @@
+﻿@model Services
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <h1>Edit Service</h1>
+
+    <form method="post" asp-action="Edit">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" name="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="IsActive" class="form-label"></label>
+        <select asp-for="IsActive" name="IsActive" class="form-control" asp-items="@ViewBag.Active">
+            <option value="">select IsActive</option>
+        </select>
+
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TypeService" class="form-label"></label>
+        <select asp-for="TypeServiceId" name="TypeServiceId" class="form-control" asp-items="@ViewBag.TypeServices">
+            <option selected value="">--select TypeService--</option>
+        </select>
+        <span asp-validation-for="TypeServiceId" class="text-danger"></span>
+    
+    </div>
+    <div>
+        <label asp-for="Department" class="form-label"></label>
+        <select asp-for="DepartmentId" disabled name="Department" class="form-control" asp-items="@ViewBag.Departments">
+            <option selected value="">--select Department--</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-warning">Edit</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

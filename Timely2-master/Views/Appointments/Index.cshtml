@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Appointment</h1>
+<div class="container">
+    <div class="text-end">
+        <a asp-controller="Appointments" asp-action="Create" class="btn btn-outline-primary">Add New</a>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>AppointmentDateTime</th>
+                <th>Status</th>
+                <th>Client</th>
+                <th>Employee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var appoint in Model)
+            {
+
+                <tr>
+                    <td>@appoint.Id</td>
+                    <td>@appoint.Title</td>
+                    <td>@appoint.Description</td>
+                    <td>@appoint.AppointmentDateTime</td>
+                    <td>@appoint.Status</td>
+                    <td>@appoint.Client?.Name</td>
+                    <td>@appoint.Employee?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-Uid="@appoint.Uid" class="btn btn-outline-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-Uid="@appoint.Uid" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

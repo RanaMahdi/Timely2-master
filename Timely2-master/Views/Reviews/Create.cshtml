@@ -1,0 +1,44 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Review</h1>
+
+<form method="post" asp-action="Create">
+
+    <div>
+        <label asp-for="Comments" class="form-label"></label>
+        <input asp-for="Comments" name="Comments" class="form-control" />
+        <span asp-validation-for="Comments" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Rating" class="form-label"></label>
+        <input asp-for="Rating" name="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ReviewDate" class="form-label"></label>
+        <input asp-for="ReviewDate" name="ReviewDate" class="form-control" />
+        <span asp-validation-for="ReviewDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Client" class="form-label"></label>
+        <select asp-for="ClientId" name="ClientId" class="form-control" asp-items="@ViewBag.Clients">
+            <option selected value="">--select Client --</option>
+        </select>
+        <span asp-validation-for="ClientId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ServiceId" class="form-label"></label>
+        <select asp-for="ServiceId" name="ServiceId" class="form-control" asp-items="@ViewBag.Services">
+            <option selected value="">--select Service--</option>
+        </select>
+        <span asp-validation-for="ServiceId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

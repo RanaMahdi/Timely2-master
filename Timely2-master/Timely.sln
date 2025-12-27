@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timely", "Timely.csproj", "{7CAF231F-548A-4985-8665-656B962A1A72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servies", "Servies", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timely2_Api", "..\Timely2_Api\Timely2_Api.csproj", "{4776B023-8CD4-4A77-AD02-AB6DE42FA3F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CAF231F-548A-4985-8665-656B962A1A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CAF231F-548A-4985-8665-656B962A1A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CAF231F-548A-4985-8665-656B962A1A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CAF231F-548A-4985-8665-656B962A1A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4776B023-8CD4-4A77-AD02-AB6DE42FA3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4776B023-8CD4-4A77-AD02-AB6DE42FA3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4776B023-8CD4-4A77-AD02-AB6DE42FA3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4776B023-8CD4-4A77-AD02-AB6DE42FA3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A0A09B9-3B54-4B74-AF5C-3D61B362D067}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Department</h1>
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" name="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="ImageFile">Department\ Image</label>
+        <input type="file" id="ImageFile" name="ImageFile" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
+    </div> 
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+
+
+

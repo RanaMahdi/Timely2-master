@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Payment>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Payment</h1>
+<div class="container">
+
+    <div class="text-end">
+
+        <a asp-controller="Payments" asp-action="Create" class="btn btn-outline-primary">Add New</a>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Appointment</th>
+                <th>Client</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var pay in Model)
+            {
+                <tr>
+                    <td>@pay.Id</td>
+                    <td>@pay.Amount</td>
+                    <td>@pay.Appointment?.Title</td>
+                    <td>@pay.Client?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-Uid="@pay.Uid" class="btn btn-outline-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-Uid="@pay.Uid" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

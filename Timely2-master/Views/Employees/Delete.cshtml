@@ -1,0 +1,33 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Employee</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name"disabled class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone"disabled class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email"disabled class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password"disabled name="Password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

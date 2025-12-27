@@ -1,0 +1,28 @@
+﻿@model Job
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <h1>Edit Job</h1>
+
+    <form method="post" asp-action="Edit">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BaseSalary" class="form-label"></label>
+        <input asp-for="BaseSalary" class="form-control" />
+        <span asp-validation-for="BaseSalary" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Update</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@model Payment
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Payment</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount"disabled class="form-control" />
+    </div>
+    <div>
+        <label asp-for="PaymentDate" class="form-label"></label>
+        <input asp-for="PaymentDate"disabled name="PaymentDate" class="form-control" />    </div>
+    <div>
+        <label asp-for="PaymentMethod" class="form-label"></label>
+        <input asp-for="PaymentMethod" disabled name="PaymentMethod" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="ClientId" class="form-label"></label>
+        <select asp-for="ClientId" disabled name="ClientId" class="form-control" asp-items="@ViewBag.Clients">
+        </select>
+    </div>
+    <div>
+        <label asp-for="AppointmentId" class="form-label"></label>
+        <select asp-for="AppointmentId" disabled name="AppointmentId" class="form-control" asp-items="@ViewBag.Appointments">
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-warning">Delete</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
+

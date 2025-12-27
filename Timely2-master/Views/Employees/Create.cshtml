@@ -1,0 +1,66 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Create Employee</h1>
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" name="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" name="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" name="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" name="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DepartmentId" class="form-label"></label>
+        <select asp-for="DepartmentId" name="DepartmentId" class="form-control" asp-items="@ViewBag.Departments">
+            <option value="">-- Select Depatment --</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DepartmentWorkingId" class="form-label"></label>
+        <select asp-for="DepartmentWorkingId" name="DepartmentWorkingId" class="form-control" asp-items="@ViewBag.DepartmentWorkings">
+            <option value="">-- Select Department Work --</option>
+        </select>
+        <span asp-validation-for="DepartmentWorkingId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="JobId" class="form-label"></label>
+        <select asp-for="JobId" name="JobId" class="form-control" asp-items="@ViewBag.Jobs">
+            <option value="">-- Select Job --</option>
+        </select>
+        <span asp-validation-for="JobId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="NationalityId" class="form-label"></label>
+        <select asp-for="NationalityId" name="NationalityId" class="form-control" asp-items="@ViewBag.Nationalities">
+            <option value="">-- Select Nationality --</option>
+        </select>
+        <span asp-validation-for="NationalityId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="ImageFile">Department\ Image</label>
+        <input type="file" id="ImageFile" name="ImageFile" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
+    </div>
+    <button type="submit" class="btn btn-outline-warning">Save</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>

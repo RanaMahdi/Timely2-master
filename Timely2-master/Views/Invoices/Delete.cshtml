@@ -1,0 +1,42 @@
+﻿@model Invoice
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Delete Invoice</h1>
+
+    <form method="post" asp-action="Delete">
+    @Html.AntiForgeryToken()
+    <input asp-for="Uid" hidden name="Uid" class="form-control" />
+    <div>
+        <label asp-for="InvoiceDate" class="form-label"></label>
+        <input asp-for="InvoiceDate"disabled type="date" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="TotalAmount" class="form-label"></label>
+        <input asp-for="TotalAmount" disabled class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="IsPaid" class="form-label"></label>
+        <input asp-for="IsPaid" disabled name="IsPaid" class="form-control" />
+    </div>
+    <div>
+        <div>
+            <label asp-for="AppointmentId" class="form-label"></label>
+            <select asp-for="AppointmentId" disabled class="form-control" asp-items="@ViewBag.Appointments">
+            </select>
+        </div>
+        <label asp-for="ClientId" class="form-label"></label>
+        <select asp-for="ClientId" disabled class="form-control" asp-items="@ViewBag.Clients">
+        </select>
+    </div>
+    <div>
+        <label asp-for="PaymentId" class="form-label"></label>
+        <select asp-for="PaymentId" disabled class="form-control" asp-items="@ViewBag.Payments">
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-warning">Delet</button>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</form>
